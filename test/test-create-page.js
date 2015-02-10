@@ -14,7 +14,7 @@ describe('Jsmontreal:create-page', function () {
 
   it('creates files', function () {
     assert.file([
-      'somefile.js'
+      'name.html'
     ]);
   });
 });
