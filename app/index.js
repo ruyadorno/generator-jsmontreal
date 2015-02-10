@@ -49,6 +49,11 @@ module.exports = yeoman.generators.Base.extend({
       }, this);
     },
 
+    config: function () {
+      this.config.set('projectName', this.userOpts.projectName);
+      this.config.save();
+    },
+
     projectfiles: function () {
       this.fs.copy(
         this.templatePath('editorconfig'),
