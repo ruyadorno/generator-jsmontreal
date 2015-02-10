@@ -31,16 +31,20 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.fs.copyTpl(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json'),
-        this.userOpts
-      );
-      this.fs.copyTpl(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json'),
-        this.userOpts
-      );
+
+      var files = {
+        'package.json': '_package.json',
+        'bower.json': '_bower.json',
+        'index.html': 'index.html'
+      };
+
+      Object.keys(files).forEach(function (key) {
+        this.fs.copyTpl(
+          this.templatePath(files[key]),
+          this.destinationPath(key),
+          this.userOpts
+        );
+      }, this);
     },
 
     projectfiles: function () {
