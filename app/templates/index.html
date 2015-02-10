@@ -5,6 +5,14 @@
   <body>
     <h1>Welcome to <%= projectName %></h1>
     <img src="img/rio.jpg" alt="rio"/>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script>
+      var $img = $('img');
+      $img.on('mousedown', function () {
+        $img.css('margin-left', (Math.random() * 500) + 'px');
+        $img.css('margin-top', (Math.random() * 200) + 'px');
+      });
+    </script>
   </body>
 </html>
 
