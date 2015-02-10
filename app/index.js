@@ -1,7 +1,9 @@
 'use strict';
+
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var path = require('path');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -55,6 +57,13 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(
         this.templatePath('jshintrc'),
         this.destinationPath('.jshintrc')
+      );
+    },
+
+    media: function () {
+      this.fs.copy(
+        this.templatePath(path.join('img','rio.jpg')),
+        this.destinationPath(path.join('img','rio.jpg'))
       );
     }
   },
